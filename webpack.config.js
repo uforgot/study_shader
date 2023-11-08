@@ -36,7 +36,17 @@ export default (env, argv) => {
       sourceMapFilename: '[file].map'
     },
     resolve: {
-      extensions: ['.js', '.ts', '.json', '.scss', 'css', 'ejs'],
+      extensions: [
+        '.js',
+        '.ts',
+        '.json',
+        '.scss',
+        'css',
+        'ejs',
+        'glsl',
+        'frag',
+        'vert'
+      ],
       alias: {
         '@': path.resolve(__dirname, 'src'),
         path: require.resolve('path-browserify')
