@@ -15,6 +15,7 @@ import WebpackPluginBeautifyHtml from './webpack/webpack.plugin.beautify.html.js
 import HtmlWebpackTagsPlugin from 'html-webpack-tags-plugin';
 import RemoveFilesWebpackPlugin from 'remove-files-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WebpackRulesGlsl from './webpack/webpack.rules.glsl.js';
 
 export default (env, argv) => {
   const date = new Date();
@@ -28,7 +29,7 @@ export default (env, argv) => {
       css: ['./src/scss/style.scss'],
       index: ['./src/ts/index.ts']
     },
-    output : {
+    output: {
       publicPath: '/',
       filename: `assets/js/[name].bundle.${version}.js`,
       path: path.resolve(__dirname, 'dist/'),
@@ -41,8 +42,9 @@ export default (env, argv) => {
         path: require.resolve('path-browserify')
       }
     },
-    module : {
+    module: {
       rules: [
+        WebpackRulesGlsl(argv),
         WebpackRulesESBuild(argv),
         WebpackRulesScss(argv, version),
         WebpackRulesEjs(argv)
@@ -61,7 +63,7 @@ export default (env, argv) => {
       port: 3000
     },
     plugins: [
-      new EjsScssClearPlugin({scssFile: ConfigSite.default.EJS_SCSS_FILE}),
+      new EjsScssClearPlugin({ scssFile: ConfigSite.default.EJS_SCSS_FILE }),
       new RemoveFilesWebpackPlugin({
         before: {
           test: [{ folder: 'dist', method: () => true }],
@@ -83,9 +85,9 @@ export default (env, argv) => {
         template: path.resolve(__dirname, './src/ejs/page/page.index.ejs'),
         chunks: ['index'],
         filename: 'index.html'
-      }),
+      })
     ]
-  }
+  };
 
   if (argv.mode === 'development') {
     // sass debug 활성화
@@ -107,4 +109,4 @@ export default (env, argv) => {
   setting.plugins.push(WebpackPluginBeautifyHtml);
 
   return setting;
-}
+};
