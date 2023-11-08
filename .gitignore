@@ -1,0 +1,21 @@
+# webstorm files
+/.DS_Store/
+/.idea/
+
+**/.DS_Store/
+
+# node modules files
+/node_modules/
+
+# distributes bundled files
+/dist/assets/
+/dist/**/*.html
+
+*.css
+*.map
+*.log
+
+!/dist/static/
+/src/scss/_ejs.scss
+yarn.lock
+package-lock.json

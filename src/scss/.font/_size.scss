@@ -1,0 +1,104 @@
+@use 'sass:math';
+
+@mixin font-18 {
+  @include mq(font-size, 18px);
+}
+.font-18 {
+  @include font-18;
+  letter-spacing: 0;
+}
+@mixin font-20 {
+  @include mq(font-size, 20px);
+}
+.font-20 {
+  @include font-20;
+}
+
+@mixin font-22 {
+  @include mq(font-size, 22px);
+  letter-spacing: 0;
+}
+.font-22 {
+  @include font-22;
+}
+
+@mixin font-26 {
+  @include mq(font-size, 26px);
+}
+.font-26 {
+  @include font-26;
+}
+
+@mixin font-30 {
+  @include mq(font-size, 30px);
+}
+.font-30 {
+  @include font-30;
+}
+
+@mixin font-32 {
+  @include mq(font-size, 32px);
+}
+.font-32 {
+  @include font-32;
+}
+
+@mixin font-33 {
+  @include mq(font-size, 33px);
+}
+.font-33 {
+  @include font-33;
+}
+
+@mixin font-40 {
+  @include mq(font-size, 40px);
+}
+.font-40 {
+  @include font-40;
+}
+
+@mixin font-46 {
+  @include mq(font-size, 46px);
+}
+.font-46 {
+  @include font-46;
+}
+
+@mixin font-50 {
+  @include mq(font-size, 50px);
+  letter-spacing: -0.3;
+  line-height: 1;
+}
+.font-50 {
+  @include font-50;
+}
+
+@mixin font-62 {
+  @include mq(font-size, 62px);
+  line-height: 1;
+}
+.font-62 {
+  @include font-62;
+}
+
+@mixin font-68 {
+  @include mq(font-size, 68px);
+  line-height: 1;
+}
+.font-68 {
+  @include font-68;
+}
+@mixin font-78 {
+  @include mq(font-size, 78px);
+  letter-spacing: -0.3;
+}
+.font-78 {
+  @include font-78;
+}
+
+@mixin font-84 {
+  @include mq(font-size, 84px);
+}
+.font-84 {
+  @include font-84;
+}

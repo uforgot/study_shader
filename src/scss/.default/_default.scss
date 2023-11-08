@@ -1,0 +1,13 @@
+@import "reset/meyer-reset";
+@import "reset/normalize";
+@import "base";
+
+// 신형주: 애플 기기에서 전화번호로 인식 되는 부분에 대한 스타일링이 다르게 나오는 부분 수정
+a[x-apple-data-detectors] {
+	color: inherit !important;
+	text-decoration: none !important;
+	font-size: inherit !important;
+	font-family: inherit !important;
+	font-weight: inherit !important;
+	line-height: inherit !important;
+}

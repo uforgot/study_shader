@@ -1,0 +1,42 @@
+// ---------------------------------- Site variables ---------------------------------- //
+$psd-desktop-width: 1920px;
+$psd-tablet-width: 1200px;
+$psd-mobile-width: 720px;
+
+$max-desktop-width: $psd-desktop-width;
+$max-tablet-width: $psd-tablet-width;
+$max-mobile-width: $psd-mobile-width;
+
+$max-content-width: $max-desktop-width;
+$min-content-width: $max-mobile-width;
+
+// frame padding
+$desktop-column-gap: 24px;
+$desktop-row-gap: 30px;
+$tablet-frame-padding: 60px;
+$desktop-frame-padding: 360px;
+$mobile-column-gap: 16px;
+$mobile-row-gap: 40px;
+$mobile-frame-padding: 24px;
+
+//z-index
+$z-index-helper: 80000;
+$z-index-loading: 70000;
+$z-index-sequence: 60000;
+$z-index-view: 50000;
+$z-index-popup: 40000;
+$z-index-menu: 30000;
+$z-index-transition: 20000;
+$z-index-content: 10000;
+
+//border-radius
+$border-radius-sm: 10px;
+$border-radius-md: 20px;
+$border-radius-lg: 40px;
+
+//color
+$color-gray: #626262;
+$color-white: #fff;
+$color-black: #000;
+$color-yellow: #fffb64;
+$color-frame-background: #333;

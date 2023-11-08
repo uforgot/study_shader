@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+// 공통 css
+@import 'variable';
+@import '.default/default';
+@import '.util/util';
+@import '.font/font';
+@import '.font/size';
+@import 'ejs';
+
+.fullscreen {
+  overflow: hidden;
+}
+
+a {
+  &:focus {
+    outline-offset: -1px;
+    //outline: 1px solid #f00;
+    //box-shadow: inset 0 0 0 1px #f00;
+  }
+}
+
+html {
+  &.onHelp {
+    a {
+      // box-shadow: inset 0 0 0 1px #0f0;
+    }
+    button {
+      // box-shadow: inset 0 0 0 1px #0f0;
+    }
+  }
+  &.onClip {
+    overflow: hidden;
+  }
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  @include font-default;
+
+  .app {
+    display: none;
+  }
+
+  main {
+    top: 0;
+    min-height: 100vh;
+    position: relative;
+    & > section {
+      position: relative;
+    }
+  }
+  color: $color-black;
+  background-color: $color-frame-background;
+}
+
+.round-border {
+  overflow: hidden;
+  @include mq(border-radius, 12px);
+}
+
+img {
+  @include css-no-select();
+  width: 100%;
+  height: auto;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+//PC Hover event
+.hover {
+}
+
+.is-clipped {
+  overflow: hidden;
+}
+
+picture {
+  display: block;
+  width: 100%;
+}
+
+select,
+input {
+  background: #fff;
+  @include mq(padding, 10px, 10px);
+  color: #000;
+}
+
+button,
+.button {
+  position: relative;
+  @include font-default;
+  @include font-regular;
+  color: #000;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+}
+
+.d-block-pc {
+  @include mq(display, none, block);
+}
+
+.d-block-m {
+  @include mq(display, block, none);
+}
+
+.d-none {
+  display: none;
+}
+
+.txt-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.section-dev-test {
+  @include mq(margin-top, 100px, 50px);
+}
+
+#viewport {
+  margin: 0 auto;
+  max-width: 720px;
+  width: 100%;
+  height: 100%;
+}
+
+figure {
+  .container-frame {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    .wrapper-tag {
+      position: absolute;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      @include mq(left, 10px);
+      @include mq(top, 10px);
+      @include mq(border-radius, 8px);
+      @include mq(padding, 0 10px);
+      @include mq(height, 35px);
+    }
+
+    .wrapper-clip {
+      position: absolute;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+
+      @include mq(right, 10px);
+      @include mq(top, 10px);
+      @include mq(border-radius, 8px);
+      background: $color-black;
+      @include mq(height, 35px);
+      @include mq(padding, 0 10px);
+      .box-img {
+        position: relative;
+        @include mq(margin-top, -5px);
+        @include mq(width, 14px);
+      }
+    }
+  }
+}

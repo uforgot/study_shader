@@ -1,0 +1,104 @@
+@use 'sass:meta';
+
+@mixin mq($args...) {
+  $count: 0;
+  $property: '';
+  $mobile: '';
+  $tablet: '';
+  $desktop: '';
+  @each $value in $args {
+    @if $count == 0 {
+      $property: $value;
+    } @else if $count == 1 {
+      $mobile: $value;
+    } @else if $count == 2 {
+      $tablet: $value;
+      $desktop: $value;
+    } @else if $count == 3 {
+      $desktop: $value;
+    }
+    $count: $count + 1;
+  }
+
+  // @debug $args;
+
+  // @debug $property $mobile $tablet $desktop;
+
+  // vw 연산을 하면 안되는 다중 숫자 인자값이 들어가는 부분에 대한 처리
+  @if (
+    $property ==
+      'aspect-ratio' or
+      $property ==
+      'grid-template-columns' or
+      $property ==
+      'grid-column-end' or
+      $property ==
+      'grid-column-start' or
+      $property ==
+      'border-bottom' or
+      $property ==
+      'border-left' or
+      $property ==
+      'border-top' or
+      $property ==
+      'border-right' or
+      $property ==
+      'border-color' or
+      $property ==
+      'border' or
+      $property ==
+      'line-height' or
+      $property ==
+      'font-weight' or
+      $property ==
+      'background' or
+      $property ==
+      'background-color' or
+      $property ==
+      'order' or
+      $property ==
+      'max-width' or
+      $property ==
+      'transition' or
+      $property ==
+      'color'
+  ) {
+    #{$property}: $mobile;
+    @include break-point-between($max-mobile-width + 1, $max-tablet-width) {
+      #{$property}: $mobile;
+    }
+    @include break-point-between($max-tablet-width, $max-content-width) {
+      #{$property}: $mobile;
+    }
+    @include break-point-min($max-content-width) {
+      #{$property}: $mobile;
+    }
+  } @else {
+    $mobileVW: $mobile;
+    @if is-percentage($mobileVW) ==false {
+      @if is-relative-length($mobileVW) ==false {
+        $mobileVW: calc-vw-mobile($mobile);
+      }
+    }
+
+    $tabletVW: $mobile;
+    $desktopVW: $mobile;
+
+    #{$property}: $mobileVW;
+    @include break-point-between($max-mobile-width, $max-tablet-width) {
+      #{$property}: $tabletVW;
+    }
+    @include break-point-between($max-tablet-width, $max-content-width) {
+      #{$property}: $desktopVW;
+    }
+    @include break-point-min($max-content-width) {
+      @if (is-spx($desktop) ==false) {
+        #{$property}: $mobile;
+      } @else {
+        #{$property}: spx-to-px($mobile);
+        // @debug $desktop;
+      }
+    }
+    // @debug $property $mobileVW $tabletVW $desktopVW;
+  }
+}
