@@ -1,5 +1,6 @@
 import Uniform from '@/ts/lib/control/shader/uniform';
 import Rect from '@/ts/lib/control/shader/rect';
+import Log from '@/ts/lib/log';
 
 interface IShader {
   fragment?: string;
@@ -26,7 +27,7 @@ class ControlShader {
     private shader: IShader
   ) {
     if (this.shader.fragment === undefined) {
-      this.shader.fragment = require('@/glsl/fragment.frag');
+      this.shader.fragment = require('@/glsl/fragment-1.frag');
     }
     this.init();
   }
@@ -66,7 +67,18 @@ class ControlShader {
   }
 
   private onResizeHandler() {
-    this.uResolution.set(this.canvasEl.width, this.canvasEl.height);
+    const width = this.canvasEl.width;
+    const height = this.canvasEl.height;
+    let a1, a2;
+    if (width > height) {
+      a1 = 1;
+      a2 = height / width;
+    } else {
+      a1 = width / height;
+      a2 = 1;
+    }
+    this.uResolution.set(width, height, a1, a2);
+    this.render();
   }
 
   private render() {
@@ -76,7 +88,7 @@ class ControlShader {
   }
 
   private setUniform() {
-    this.uResolution = new Uniform('u_resolution', '2f', this.program, this.gl);
+    this.uResolution = new Uniform('u_resolution', '4f', this.program, this.gl);
     this.uMouse = new Uniform('u_mouse', '2f', this.program, this.gl);
     this.uRatio = new Uniform('u_pixel_ratio', '1f', this.program, this.gl);
     this.uTime = new Uniform('u_time', '1f', this.program, this.gl);

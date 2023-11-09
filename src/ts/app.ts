@@ -7,7 +7,7 @@ class App {
 
     new ControlShader(document.querySelector('#canvas-1'), {
       vertex: require('@/glsl/vertex.vert'),
-      fragment: require('@/glsl/fragment.frag')
+      fragment: require('@/glsl/fragment-1.frag')
     });
   }
 }
