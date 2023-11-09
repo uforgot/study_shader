@@ -9,7 +9,7 @@ class Uniform {
     this.location = this.gl.getUniformLocation(this.program, this.name);
   }
 
-  public set(...values: any[]) {
+  public set(...values: Array<number>) {
     let method = 'uniform' + this.suffix;
     let args = [this.location].concat(values);
     this.gl[method].apply(this.gl, args);
