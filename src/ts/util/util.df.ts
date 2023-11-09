@@ -1,4 +1,13 @@
-import { ILoc, TYPE_DEVICE } from '../interface/interface.common';
+interface ILoc {
+  x: number;
+  y: number;
+}
+
+export enum TYPE_DEVICE {
+  DESKTOP,
+  TABLET,
+  MOBILE
+}
 
 export default class UtilDf {
   public static hostName = '';

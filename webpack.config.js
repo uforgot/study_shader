@@ -41,11 +41,11 @@ export default (env, argv) => {
         '.ts',
         '.json',
         '.scss',
-        'css',
-        'ejs',
-        'glsl',
-        'frag',
-        'vert'
+        '.css',
+        '.ejs',
+        '.glsl',
+        '.frag',
+        '.vert'
       ],
       alias: {
         '@': path.resolve(__dirname, 'src'),

@@ -19,7 +19,7 @@ class ControlShader {
   private renderIntervalID: NodeJS.Timeout;
 
   private billBoard: Rect;
-  private positionLocation: WebGLUniformLocation;
+  private positionLocation: number;
 
   constructor(
     private canvasEl: HTMLCanvasElement,
@@ -35,8 +35,6 @@ class ControlShader {
     this.gl = this.canvasEl.getContext('webgl');
     this.program = this.gl.createProgram();
 
-    this.gl.linkProgram(this.program);
-
     this.setShader(this.shader.vertex, this.gl.VERTEX_SHADER);
     this.setShader(this.shader.fragment, this.gl.FRAGMENT_SHADER);
 
@@ -50,9 +48,10 @@ class ControlShader {
       this.program,
       'a_position'
     );
-    this.gl.enableVertexAttribArray(this.positionLocation as number);
+
+    this.gl.enableVertexAttribArray(this.positionLocation);
     this.gl.vertexAttribPointer(
-      this.positionLocation as number,
+      this.positionLocation,
       2,
       this.gl.FLOAT,
       false,
@@ -62,6 +61,7 @@ class ControlShader {
 
     this.onResizeHandler();
     window.addEventListener('resize', this.onResizeHandler.bind(this));
+    this.render();
     setInterval(this.render.bind(this), 1000 / 60);
   }
 
@@ -70,8 +70,9 @@ class ControlShader {
   }
 
   private render() {
-    this.count += 0.001;
+    this.count += 0.01;
     this.uTime.set(this.count);
+    this.billBoard.render();
   }
 
   private setUniform() {
