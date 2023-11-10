@@ -9,6 +9,16 @@ class App {
       vertex: require('@/glsl/vertex.vert'),
       fragment: require('@/glsl/fragment-1.frag')
     });
+
+    new ControlShader(document.querySelector('#canvas-rect'), {
+      vertex: require('@/glsl/vertex.vert'),
+      fragment: require('@/glsl/fragment-rect.frag')
+    });
+
+    new ControlShader(document.querySelector('#canvas-circle'), {
+      vertex: require('@/glsl/vertex.vert'),
+      fragment: require('@/glsl/fragment-circle.frag')
+    });
   }
 }
 
