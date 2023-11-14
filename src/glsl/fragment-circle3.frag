@@ -16,7 +16,7 @@ void main() {
     coord.x *= u_resolution.x/u_resolution.y;
     coord = coord * 2. - 1.0;
 
-    float a = atan(coord.y, coord.x);
+    float a = atan(coord.y/1.0, coord.x);
 //    float d = distance(vec2(0.), coord);
     float d = length(coord);
 
