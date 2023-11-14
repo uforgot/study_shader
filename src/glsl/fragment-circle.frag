@@ -19,7 +19,5 @@ void main() {
     vec2 coord = gl_FragCoord.xy / u_resolution.xy;
     vec3 col =  circle(coord, vec2(.5), .25);
 
-
-
     gl_FragColor = vec4(col, 1.0);
 }

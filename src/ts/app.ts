@@ -25,9 +25,14 @@ class App {
     //   fragment: require('@/glsl/fragment-circle2.frag')
     // });
 
-    new ControlShader(document.querySelector('#canvas-circle-3'), {
+    // new ControlShader(document.querySelector('#canvas-circle-3'), {
+    //   vertex: require('@/glsl/vertex.vert'),
+    //   fragment: require('@/glsl/fragment-circle3.frag')
+    // });
+
+    new ControlShader(document.querySelector('#canvas-2d-matrix'), {
       vertex: require('@/glsl/vertex.vert'),
-      fragment: require('@/glsl/fragment-circle3.frag')
+      fragment: require('@/glsl/fragment-2d-matrix.frag')
     });
   }
 }
