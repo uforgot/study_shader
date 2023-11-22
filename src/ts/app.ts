@@ -30,9 +30,19 @@ class App {
     //   fragment: require('@/glsl/fragment-circle3.frag')
     // });
 
-    new ControlShader(document.querySelector('#canvas-2d-matrix'), {
+    // new ControlShader(document.querySelector('#canvas-2d-matrix'), {
+    //   vertex: require('@/glsl/vertex.vert'),
+    //   fragment: require('@/glsl/fragment-2d-matrix.frag')
+    // });
+
+    // new ControlShader(document.querySelector('#canvas-pattern'), {
+    //   vertex: require('@/glsl/vertex.vert'),
+    //   fragment: require('@/glsl/fragment-pattern.frag')
+    // });
+
+    new ControlShader(document.querySelector('#canvas-pattern-2'), {
       vertex: require('@/glsl/vertex.vert'),
-      fragment: require('@/glsl/fragment-2d-matrix.frag')
+      fragment: require('@/glsl/fragment-pattern-2.frag')
     });
   }
 }

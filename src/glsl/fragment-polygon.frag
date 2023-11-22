@@ -24,6 +24,6 @@ void main() {
     a+= u_time * 2.;
     float r = sin(a);
 
-    vec3 col = vec3(smoothstep(r-0.01 ,r+0.01,d));;
+    vec3 col = vec3(smoothstep(r-0.01,r+0.01,d));;
     gl_FragColor = vec4(col,1.0);
 }

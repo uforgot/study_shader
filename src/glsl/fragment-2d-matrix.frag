@@ -8,7 +8,7 @@ uniform float u_time;
 float bar(vec2 loc, vec2 size, vec2 coord) {
     vec2 sw = loc - size/2.0;
     vec2 ne = loc + size/2.0;
-    vec2 ret = smoothstep(sw + 0.02, sw,coord) - smoothstep(ne , ne- 0.02, coord);
+    vec2 ret = smoothstep(sw + 0.002, sw,coord) - smoothstep(ne , ne- 0.002, coord);
 
     return  ret.x * ret.y;
 }
@@ -24,14 +24,19 @@ mat2 rotate2d(float _angle) {
                 sin(_angle),cos(_angle));
 }
 
+mat2 scale (vec2 _scale) {
+    return mat2(_scale.x,0.0,
+                0.0,_scale.y);
+}
+
 void main() {
     vec2 coord = gl_FragCoord.xy/ u_resolution.xy;
     coord.x *= u_resolution.x/u_resolution.y;
     coord = coord*2. - 1.;
 
-
     float rad = 0.5;
-    coord += vec2(sin(u_time)*rad, cos(u_time)*rad);
+    coord *= scale(vec2(sin(u_time*2.)*0.5+1.0));
+//    coord += vec2(sin(u_time)*rad, cos(u_time)*rad);
 
     vec2 loc = vec2(0.);
     coord *= rotate2d(u_time*-4.);
