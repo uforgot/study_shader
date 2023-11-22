@@ -30,7 +30,7 @@ void main() {
     coord *= rotate2d(QUAR_PI);
 
     vec3 col = vec3(1.0);
-    col = vec3(rect(coord, vec2(.5/1.414), vec2(0.0))) ;
+    col = vec3(rect(coord, vec2(sqrt(0.5*0.5 + 0.5 *0.5)/2.), vec2(0.0))) ;
 
     gl_FragColor = vec4(col, 1.0);
 }
