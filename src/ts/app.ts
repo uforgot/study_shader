@@ -40,9 +40,19 @@ class App {
     //   fragment: require('@/glsl/fragment-pattern.frag')
     // });
 
-    new ControlShader(document.querySelector('#canvas-pattern-2'), {
+    // new ControlShader(document.querySelector('#canvas-pattern-2'), {
+    //   vertex: require('@/glsl/vertex.vert'),
+    //   fragment: require('@/glsl/fragment-pattern-2.frag')
+    // });
+
+    // new ControlShader(document.querySelector('#canvas-random'), {
+    //   vertex: require('@/glsl/vertex.vert'),
+    //   fragment: require('@/glsl/fragment-random.frag')
+    // });
+
+    new ControlShader(document.querySelector('#canvas-random-2'), {
       vertex: require('@/glsl/vertex.vert'),
-      fragment: require('@/glsl/fragment-pattern-2.frag')
+      fragment: require('@/glsl/fragment-random-2.frag')
     });
   }
 }
