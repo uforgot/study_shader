@@ -16,7 +16,7 @@ float random(float f) {
 
 float random(vec2 v2) {
     float f =  random(dot(v2, vec2(8.26593, 4.8682)));
-    float y = fract(sin(f*u_time *0.00009) * 34634.12412);
+    float y = fract(sin(f * u_time *0.00009) * 34634.12412);
     return y;
 }
 

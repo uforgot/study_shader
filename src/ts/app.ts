@@ -50,9 +50,14 @@ class App {
     //   fragment: require('@/glsl/fragment-random.frag')
     // });
 
+    // new ControlShader(document.querySelector('#canvas-random-2'), {
+    //   vertex: require('@/glsl/vertex.vert'),
+    //   fragment: require('@/glsl/fragment-random-2.frag')
+    // });
+
     new ControlShader(document.querySelector('#canvas-random-2'), {
       vertex: require('@/glsl/vertex.vert'),
-      fragment: require('@/glsl/fragment-random-2.frag')
+      fragment: require('@/glsl/fragment-random-3.frag')
     });
   }
 }
