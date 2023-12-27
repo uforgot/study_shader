@@ -69,6 +69,11 @@ class App {
       vertex: require('@/glsl/vertex.vert'),
       fragment: require('@/glsl/fragment-noise-2.frag')
     });
+
+    // new ControlShader(document.querySelector('#canvas-noise-3'), {
+    //   vertex: require('@/glsl/vertex.vert'),
+    //   fragment: require('@/glsl/fragment-noise-3.frag')
+    // });
   }
 }
 

@@ -4,24 +4,13 @@ precision mediump float;
 
 uniform vec4 u_resolution;
 uniform float u_time;
+uniform vec2 u_mouse;
+
 
 float plot(vec2 st, float pct) {
-    return smoothstep( pct-0.01, pct , st.y) - smoothstep( pct , pct+0.01, st.y);
+    return smoothstep( pct-0.002, pct , st.y) - smoothstep( pct , pct+0.002, st.y);
 }
 
-float plotY(vec2 st, float pct) {
-    return smoothstep( pct, pct-0.01 , st.x) + smoothstep( pct+0.01 , pct, st.x);
-}
-float random(float x) {
-    return fract(sin(x*654.876)*915.876);
-}
-
-float random(vec2 v2) {
-    float f =  random(dot(v2, vec2(8.26513, 4.8682)));
-    float y = fract(sin(f * 0.00009) * 34634.12412);
-    return y;
-}
-//value noise
 float noise(vec2 val) {
     vec2 i = floor(val);
     vec2 f = fract(val);
@@ -52,12 +41,7 @@ void main() {
 
     vec3 col = vec3(noise(coord));
 
-    //grid 추가
-    float pctY = plot(coord,  floor(coord.y));
-    float pctX = plotY(coord,  floor(coord.x));
-    col = mix(col, vec3(1.0,0.0,0.0), pctY);
-    col = mix(col, vec3(1.0,0.0,0.0), pctX);
-
+    //    col =  vec3(plot(coord, pow(fract(sin(coord.x*2.)*100000.),1./10.)));
 
     gl_FragColor = vec4(col, 1.0);
 }
