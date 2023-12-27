@@ -47,7 +47,7 @@ float noise(vec2 val) {
 void main() {
     vec2 coord = gl_FragCoord.xy / u_resolution.xy;
     coord.x *= u_resolution.x/u_resolution.y;
-    coord *= 10.0;
+    coord *= 5.0;
 
 
     vec3 col = vec3(noise(coord));
