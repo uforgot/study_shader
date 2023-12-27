@@ -6,11 +6,11 @@ uniform vec4 u_resolution;
 uniform float u_time;
 
 float plot(vec2 st, float pct) {
-    return smoothstep( pct-0.01, pct , st.y) - smoothstep( pct , pct+0.01, st.y);
+    return smoothstep( pct-0.015, pct , st.y) - smoothstep( pct , pct+0.015, st.y);
 }
 
 float plotY(vec2 st, float pct) {
-    return smoothstep( pct, pct-0.01 , st.x) + smoothstep( pct+0.01 , pct, st.x);
+    return smoothstep( pct, pct-0.015, st.x) + smoothstep( pct+0.015 , pct, st.x);
 }
 float random(float x) {
     return fract(sin(x*654.876)*915.876);
@@ -47,7 +47,7 @@ float noise(vec2 val) {
 void main() {
     vec2 coord = gl_FragCoord.xy / u_resolution.xy;
     coord.x *= u_resolution.x/u_resolution.y;
-    coord *= 5.0;
+    coord *= 10.0;
 
 
     vec3 col = vec3(noise(coord));
